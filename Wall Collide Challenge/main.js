@@ -26,6 +26,8 @@ window.addEventListener("load", draw);
 
 function draw() {
   // Logic
+
+  // Move Blue Player
   if (rightPressed) {
     player.x += player.speed;
   } else if (leftPressed) {
@@ -35,24 +37,25 @@ function draw() {
   } else if (downPressed) {
     player.y += player.speed;
   }
-}
 
-// Drawing
+  // Drawing
 
   // Backround
   ctx.fillStyle = "white";
   ctx.fillRect(0, 0, cnv.width, cnv.height);
 
   ctx.fillStyle = "grey";
-ctx.fillRect( 500,250,50,150)
+  ctx.fillRect(500, 250, 50, 150);
 
   // Draw Player
   ctx.fillStyle = player.color;
   ctx.fillRect(player.x, player.y, player.w, player.h);
+
+  // Animation Loop
   requestAnimationFrame(draw);
+}
 
-
-  // Event Stuff
+// Event Stuff
 document.addEventListener("keydown", keydownHandler);
 
 function keydownHandler(e) {
